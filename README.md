@@ -5,12 +5,6 @@
 
 A short description of what template-go-console-app does.
 
-## 😩 Why template-go-console-app?
-
-- Reason one why this tool exists.
-- Reason two.
-- Reason three.
-
 ## ✨ How it works
 
 A short explanation of how the tool works.
@@ -18,30 +12,6 @@ A short explanation of how the tool works.
 ```bash
 template-go-console-app --help
 ```
-
-## ⚡ Install
-
-**Linux / macOS** — installs to `~/.local/bin`:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/rolfwessels/template-go-console-app/main/install.sh | sh
-```
-
-**Windows (PowerShell)** — installs to `%LOCALAPPDATA%\Programs\template-go-console-app\` and adds it to your user PATH:
-
-```powershell
-irm https://raw.githubusercontent.com/rolfwessels/template-go-console-app/main/install.ps1 | iex
-```
-
-Want a different location? Set `INSTALL_DIR` first:
-
-```bash
-INSTALL_DIR=/usr/local/bin curl -fsSL https://raw.githubusercontent.com/rolfwessels/template-go-console-app/main/install.sh | sh
-```
-
-To upgrade, just re-run the same command. Both scripts pull the binary from the [latest GitHub release](https://github.com/rolfwessels/template-go-console-app/releases/latest), which is published on every push to `main` under a new version tag.
-
-Prefer to download by hand? Grab the right archive for your platform from the [releases page](https://github.com/rolfwessels/template-go-console-app/releases), extract, and put the binary somewhere on your PATH.
 
 ## 📦 Technology
 
