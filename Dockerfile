@@ -30,7 +30,7 @@ RUN GOOS=linux GOARCH=amd64 go build \
     -o /out/template-go-console-app ./cmd/template-go-console-app
 
 # ── runtime: minimal production image ─────────────────────────────────────────
-FROM alpine:3.21 AS runtime
+FROM alpine:3.22 AS runtime
 
 RUN apk add --no-cache ca-certificates
 COPY --from=build /out/template-go-console-app /usr/local/bin/template-go-console-app
