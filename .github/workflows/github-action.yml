@@ -23,6 +23,9 @@ jobs:
       - name: Test
         run: make test
 
+      - name: Audit dependencies for known vulnerabilities
+        run: make scan
+
       - name: Build (smoke test)
         run: go build ./cmd/template-go-console-app
 
