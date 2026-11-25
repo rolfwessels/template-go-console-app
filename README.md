@@ -1,114 +1,47 @@
 # 🌐 template-go-console-app
 
 [![GitHub release](https://img.shields.io/github/v/release/rolfwessels/template-go-console-app)](https://github.com/rolfwessels/template-go-console-app/releases)
-[![Go CI](https://github.com/rolfwessels/template-go-console-app/actions/workflows/github-action.yml/badge.svg)](https://github.com/rolfwessels/template-go-console-app/actions)
+[![Go CI](https://github.com/rolfwessels/template-go-console-app/actions/workflows/github-action.yml/badge.svg)](https://github.com/rolfwessels/template-go-console-app/actions/workflows/github-action.yml)
 
-A short description of what template-go-console-app does.
-
-## ✨ How it works
-
-A short explanation of how the tool works.
-
-```bash
-template-go-console-app --help
-```
-
-## 📦 Technology
-
-- Docker for the dev environment
-- MakeFile because it just works!
-
-## 🚀 Getting started with development
-
-This project ships with a development container that has all the tooling required to build, test, and publish.
-
-```bash
-# bring up dev environment
-make build up
-
-# test the project
-make test
-
-# run the CLI
-make start
-
-# build release binaries for all platforms
-make publish
-```
-
-To build and push a Docker image:
-
-```bash
-make docker-build docker-login docker-push
-# or just
-make docker-publish
-```
+A Go CLI starter with a version-printing command, a development container, and release builds for Linux, macOS, and Windows.
 
 ## 🛠 Prerequisites
 
-- [Docker](https://docs.docker.com/get-docker/) — for the dev container
-- [Git](https://git-scm.com/) — for version control
-- `make` — available via WSL on Windows, or natively on macOS/Linux
+- Git and `make` (use WSL on Windows for the Makefile commands).
+- Go 1.26 for local development, or Docker with Compose for the development container.
 
-## 📋 Available make commands
+## 🚀 Quick start
 
-### 💻 Commands outside the container
+Run this command from the repository root with Go installed. To use Docker, first run `make build up` on the host and continue in the development shell it opens.
 
-| Command      | Description                                          |
-|--------------|------------------------------------------------------|
-| `make up`    | Bring up the container & attach to the dev shell     |
-| `make down`  | Stop the container                                   |
-| `make build` | Rebuild the container                                |
+```sh
+make start
+```
 
-### 🐳 Commands to run inside the container
+The starter prints its development version.
 
-| Command                      | Description                                    |
-|------------------------------|------------------------------------------------|
-| `make version`               | Show the current version                       |
-| `make start`                 | Run template-go-console-app                    |
-| `make test`                  | Run tests                                      |
-| `make publish`               | Build release archives for 5 platforms         |
-| `make install`               | Symlink binary into ~/.local/bin               |
-| `make uninstall`             | Remove the ~/.local/bin symlink                |
-| `make docker-login`          | Login to Docker registry                       |
-| `make docker-build`          | Build the production Docker image              |
-| `make docker-push`           | Push the Docker image                          |
-| `make docker-pull-short-tag` | Pull image by git short hash                   |
-| `make docker-tag-env`        | Tag image for an environment                   |
-| `make docker-publish`        | Full build + push workflow                     |
-| `make deploy`                | Deploy template-go-console-app                 |
-| `make update-packages`       | Update Go dependencies to latest               |
+```text
+template-go-console-app vdev
+```
+
+## 📋 Make commands
+
+| Command | Purpose |
+| --- | --- |
+| `make start` | Run the CLI. |
+| `make test` | Run the Go tests. |
+| `make build up` | Build the development container and open its shell. |
+| `make down` | Stop the development container from the host. |
+
+Run `make help` for more targets.
 
 ## 💻 Development
 
-### Versioning
+The command and its tests live in `cmd/template-go-console-app/`. See [AGENTS.md](AGENTS.md) for branch naming, pull requests, and verification.
 
-This project follows [Semantic Versioning](https://semver.org/):
+## 📦 Releases and deployment
 
-- **MAJOR**: Incompatible API changes
-- **MINOR**: Backward-compatible new functionality
-- **PATCH**: Backward-compatible bug fixes
-
-`MAJOR` and `MINOR` are set manually via `versionPrefix` in the `Makefile`. `PATCH` is automatically derived from commit count.
-
-```bash
-make version
-```
-
-### Development Workflow
-
-See [AGENTS.md](AGENTS.md) for branch naming, pull requests, and verification.
-
-PR builds attach archives as workflow artifacts. Merging to `main` publishes them as a new versioned [GitHub release](https://github.com/rolfwessels/template-go-console-app/releases).
-
-## FAQ
-
-**Can I use this on Windows/macOS/Linux?**  
-Yes — binaries are published for all three platforms.
-
-**How do I update to the latest version?**  
-Re-run the install command (`install.sh` or `install.ps1`). It overwrites the binary in place from the latest release.
-
-## Research
-
-- [What is a Makefile?](https://opensource.com/article/18/8/what-how-makefile)
+- `make publish` builds five platform archives under `dist/`. On Linux amd64, run `make install` on the host afterward to link the local binary into `~/.local/bin`.
+- Pull request builds attach archives as workflow artifacts. Merges to `main` publish a versioned [GitHub release](https://github.com/rolfwessels/template-go-console-app/releases). To update a downloaded binary, extract the latest archive for your platform and replace the old copy.
+- Set the major and minor version with `versionPrefix` in the Makefile. The patch comes from the Git commit count. Run `make version` to see the resulting version.
+- Use `make docker-build` to build the runtime image or `make docker-publish` to build and push it after configuring your registry.
