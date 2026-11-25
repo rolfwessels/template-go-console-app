@@ -24,6 +24,8 @@ The starter prints its development version.
 template-go-console-app vdev
 ```
 
+The dev shell shows a 🐳 prompt and saves Zsh history in a project volume across `make down` and rebuilds.
+
 ## 📋 Make commands
 
 | Command | Purpose |
