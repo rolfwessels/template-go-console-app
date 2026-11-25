@@ -97,7 +97,8 @@ make version
 
 ### Development Workflow
 
-Feature branches are created off `main` with the prefix `feature/` or `bug/`.
+See [AGENTS.md](AGENTS.md) for branch naming, pull requests, and verification.
+
 PR builds attach archives as workflow artifacts. Merging to `main` publishes them as a new versioned [GitHub release](https://github.com/rolfwessels/template-go-console-app/releases).
 
 ## FAQ
