@@ -32,6 +32,8 @@ The dev shell shows a 🐳 prompt and saves Zsh history in a project volume acro
 | --- | --- |
 | `make start` | Run the CLI. |
 | `make test` | Run the Go tests. |
+| `make scan` | Audit imported Go packages and the Go standard library. |
+| `make verify` | Run tests and the dependency audit. |
 | `make build up` | Build the development container and open its shell. |
 | `make down` | Stop the development container from the host. |
 
